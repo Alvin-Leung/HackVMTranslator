@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="ArithmeticCommand.cs" />
     <Compile Include="FileParser.cs" />
+    <Compile Include="MemoryAccessCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyntaxValidator.cs" />
