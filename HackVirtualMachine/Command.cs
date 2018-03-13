@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace HackVirtualMachine
+﻿namespace HackVirtualMachine
 {
     abstract public class Command
     {
-        abstract protected List<string> assemblyCommands { get; set; }
+        protected readonly string vmCommand;
+
+        protected Command(string vmCommand)
+        {
+            this.vmCommand = vmCommand;
+        }
     }
 }

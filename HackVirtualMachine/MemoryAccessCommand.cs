@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace HackVirtualMachine
 {
     public class MemoryAccessCommand : Command, ICommand
     {
-        protected override List<string> assemblyCommands { get; set; }
+        public MemoryAccessCommand(string vmCommand) : base(vmCommand) { }
 
         public string[] GetAssemblyCommands()
         {
