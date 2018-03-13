@@ -43,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="CommandFactory.cs" />
     <Compile Include="ICommand.cs" />
     <Compile Include="ArithmeticCommand.cs" />
+    <Compile Include="ICommandFactory.cs" />
+    <Compile Include="VMCommandParser.cs" />
     <Compile Include="FileParser.cs" />
     <Compile Include="MemoryAccessCommand.cs" />
     <Compile Include="Program.cs" />
