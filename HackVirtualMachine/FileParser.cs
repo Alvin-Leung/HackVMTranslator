@@ -4,31 +4,32 @@ using System.Collections.Generic;
 
 namespace HackVirtualMachine
 {
-    public class FileParser
+    static public class FileParser
     {
-        private List<string> vmCommands = new List<string>();
+        static private string commentIndicator = "//";
 
-        private string commentIndicator = "//";
-
-        public FileParser(string filepath)
+        static public string[] GetArrayOfVMCommands(string filepath)
         {
+            List<string> vmCommands;
+
             if (File.Exists(filepath))
             {
-                this.ReadVMCommandsToList(filepath);
+                vmCommands = ReadVMCommandsToList(filepath);
             }
             else
             {
                 throw new Exception("FileParser::FileParser - The specified file does not exist");
             }
-        }
 
-        public string[] GetArrayOfVMCommands()
-        {
+            Console.WriteLine(Environment.NewLine + "VM file parsed...");
+
             return vmCommands.ToArray();
         }
 
-        private void ReadVMCommandsToList(string filepath)
+        static private List<string> ReadVMCommandsToList(string filepath)
         {
+            List<string> vmCommands = new List<string>();
+
             string newLine;
 
             using (StreamReader streamReader = new StreamReader(filepath))
@@ -48,10 +49,10 @@ namespace HackVirtualMachine
                 }
             }
 
-            Console.WriteLine(Environment.NewLine + "VM file parsed...");
+            return vmCommands;
         }
 
-        private string RemoveInlineComments(string line)
+        static private string RemoveInlineComments(string line)
         {
             int indexOfCommentStart;
 
@@ -65,7 +66,7 @@ namespace HackVirtualMachine
             return line;
         }
 
-        private string RemoveWhitespacePadding(string line)
+        static private string RemoveWhitespacePadding(string line)
         {
             return line.Trim(' ');
         }
