@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 namespace HackVirtualMachine
 {
-    static public class FileParser
+    public class FileParser
     {
-        static private string commentIndicator = "//";
+        private string commentIndicator = "//";
 
-        static public string[] GetArrayOfVMCommands(string filepath)
+        public string[] GetArrayOfVMCommands(string filepath)
         {
             List<string> vmCommands;
 
@@ -26,7 +26,7 @@ namespace HackVirtualMachine
             return vmCommands.ToArray();
         }
 
-        static private List<string> ReadVMCommandsToList(string filepath)
+        private List<string> ReadVMCommandsToList(string filepath)
         {
             List<string> vmCommands = new List<string>();
 
@@ -52,13 +52,13 @@ namespace HackVirtualMachine
             return vmCommands;
         }
 
-        static private string RemoveInlineComments(string line)
+        private string RemoveInlineComments(string line)
         {
             int indexOfCommentStart;
 
-            if (line.Contains(commentIndicator))
+            if (line.Contains(this.commentIndicator))
             {
-                indexOfCommentStart = line.IndexOf(commentIndicator);
+                indexOfCommentStart = line.IndexOf(this.commentIndicator);
 
                 line = line.Remove(indexOfCommentStart);
             }
@@ -66,7 +66,7 @@ namespace HackVirtualMachine
             return line;
         }
 
-        static private string RemoveWhitespacePadding(string line)
+        private string RemoveWhitespacePadding(string line)
         {
             return line.Trim(' ');
         }
