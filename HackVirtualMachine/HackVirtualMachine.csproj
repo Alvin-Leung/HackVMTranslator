@@ -47,6 +47,7 @@
     <Compile Include="ICommand.cs" />
     <Compile Include="ArithmeticCommand.cs" />
     <Compile Include="ICommandFactory.cs" />
+    <Compile Include="Translator.cs" />
     <Compile Include="VMCommandParser.cs" />
     <Compile Include="FileParser.cs" />
     <Compile Include="MemoryAccessCommand.cs" />
