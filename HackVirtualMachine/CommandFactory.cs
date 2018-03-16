@@ -18,7 +18,7 @@ namespace HackVirtualMachine
             }
             else
             {
-                throw new Exception("Unrecognized command");
+                throw new Exception("Unrecognized command: " + vmCommand);
             }
 
             return command;
