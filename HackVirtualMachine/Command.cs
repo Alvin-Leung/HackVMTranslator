@@ -1,12 +1,14 @@
 ﻿namespace HackVirtualMachine
 {
-    abstract public class Command
+    abstract public class Command : ICommand
     {
         protected readonly string vmCommand;
 
-        protected Command(string vmCommand)
+        public Command(string vmCommand)
         {
             this.vmCommand = vmCommand;
         }
+
+        abstract public string[] GetAssemblyCommands();
     }
 }

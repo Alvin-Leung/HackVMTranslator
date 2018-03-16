@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace HackVirtualMachine
+﻿namespace HackVirtualMachine
 {
-    public class ArithmeticCommand : Command, ICommand
+    public class ArithmeticCommand : Command
     {
         public ArithmeticCommand(string vmCommand) : base(vmCommand) { }
 
-        public string[] GetAssemblyCommands()
+        public override string[] GetAssemblyCommands()
         {
             return Translator.GetAssemblyCodeFromArithmeticVMCommand(this.vmCommand);
         }

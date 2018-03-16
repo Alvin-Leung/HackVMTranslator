@@ -2,11 +2,11 @@
 
 namespace HackVirtualMachine
 {
-    public class MemoryAccessCommand : Command, ICommand
+    public class MemoryAccessCommand : Command
     {
         public MemoryAccessCommand(string vmCommand) : base(vmCommand) { }
 
-        public string[] GetAssemblyCommands()
+        public override string[] GetAssemblyCommands()
         {
             throw new NotImplementedException();
         }
