@@ -8,7 +8,7 @@ namespace HackVirtualMachine
 
         public override string[] GetAssemblyCommands()
         {
-            throw new NotImplementedException();
+            return translator.GetAssemblyCodeFromMemoryAccessVMCommand(this.vmCommand);
         }
     }
 }

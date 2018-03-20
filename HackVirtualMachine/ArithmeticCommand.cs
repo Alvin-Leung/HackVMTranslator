@@ -6,7 +6,7 @@
 
         public override string[] GetAssemblyCommands()
         {
-            return Translator.GetAssemblyCodeFromArithmeticVMCommand(this.vmCommand);
+            return translator.GetAssemblyCodeFromArithmeticVMCommand(this.vmCommand);
         }
     }
 }
