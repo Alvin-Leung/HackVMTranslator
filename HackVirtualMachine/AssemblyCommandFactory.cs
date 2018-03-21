@@ -31,7 +31,7 @@ namespace HackVirtualMachine
                 assemblyCommands.AddRange(nextAssemblyInstructions);
             }
 
-            return assemblyCommands.ToArray();
+            return assemblyCommands;
         }
     }
 }
