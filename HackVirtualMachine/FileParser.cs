@@ -8,13 +8,13 @@ namespace HackVirtualMachine
     {
         private string commentIndicator = "//";
 
-        public string[] GetArrayOfVMCommands(string filepath)
+        public IEnumerable<string> GetVMCommands(string filepath)
         {
-            List<string> vmCommands;
+            IEnumerable<string> vmCommands;
 
             if (File.Exists(filepath))
             {
-                vmCommands = ReadVMCommandsToList(filepath);
+                vmCommands = ReadAndSanitizeVMCommands(filepath);
             }
             else
             {
@@ -23,10 +23,10 @@ namespace HackVirtualMachine
 
             Console.WriteLine(Environment.NewLine + "VM file parsed...");
 
-            return vmCommands.ToArray();
+            return vmCommands;
         }
 
-        private List<string> ReadVMCommandsToList(string filepath)
+        private IEnumerable<string> ReadAndSanitizeVMCommands(string filepath)
         {
             List<string> vmCommands = new List<string>();
 
