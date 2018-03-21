@@ -4,6 +4,8 @@ namespace HackVirtualMachine
 {
     public class Translator
     {
+        private LabelGenerator labelGenerator = new LabelGenerator();
+
         public string[] GetAssemblyCodeFromArithmeticVMCommand(string vmCommand)
         {
             string[] assemblyCodeEquivalentToVMCommand;
@@ -58,6 +60,10 @@ namespace HackVirtualMachine
             }
             else if (vmCommand == "eq")
             {
+                string equalLabel = labelGenerator.GetNextEqualLabel();
+
+                string pushLabel = labelGenerator.GetNextPushLabel();
+
                 assemblyCodeEquivalentToVMCommand = new string[]
                 {
                     "@SP",
@@ -66,14 +72,14 @@ namespace HackVirtualMachine
                     "@SP",
                     "AM=M-1",
                     "D=M-D",
-                    "@EQUAL",
+                    "@" + equalLabel,
                     "D;JEQ",
                     "D=0",
-                    "@PUSH",
+                    "@" + pushLabel,
                     "0;JMP",
-                    "(EQUAL)",
+                    "(" + equalLabel + ")",
                     "D=1",
-                    "(PUSH)",
+                    "(" + pushLabel + ")",
                     "@SP",
                     "A=M",
                     "M=D",
@@ -83,6 +89,10 @@ namespace HackVirtualMachine
             }
             else if (vmCommand == "gt")
             {
+                string greaterThanLabel = labelGenerator.GetNextGreaterThanLabel();
+
+                string pushLabel = labelGenerator.GetNextPushLabel();
+
                 assemblyCodeEquivalentToVMCommand = new string[]
                 {
                     "@SP",
@@ -91,14 +101,14 @@ namespace HackVirtualMachine
                     "@SP",
                     "AM=M-1",
                     "D=M-D",
-                    "@GREATERTHAN",
+                    "@" + greaterThanLabel.ToString(),
                     "D;JGT",
                     "D=0",
-                    "@PUSH",
+                    "@" + pushLabel.ToString(),
                     "0;JMP",
-                    "(GREATERTHAN)",
+                    "(" + greaterThanLabel + ")",
                     "D=1",
-                    "(PUSH)",
+                    "(" + pushLabel + ")",
                     "@SP",
                     "A=M",
                     "M=D",
@@ -108,6 +118,10 @@ namespace HackVirtualMachine
             }
             else if (vmCommand == "lt")
             {
+                string lessThanLabel = labelGenerator.GetNextLessThanLabel();
+
+                string pushLabel = labelGenerator.GetNextPushLabel();
+
                 assemblyCodeEquivalentToVMCommand = new string[]
                 {
                     "@SP",
@@ -116,14 +130,14 @@ namespace HackVirtualMachine
                     "@SP",
                     "AM=M-1",
                     "D=M-D",
-                    "@LESSTHAN",
+                    "@" + lessThanLabel,
                     "D;JLT",
                     "D=0",
-                    "@PUSH",
+                    "@" + pushLabel,
                     "0;JMP",
-                    "(LESSTHAN)",
+                    "(" + lessThanLabel + ")",
                     "D=1",
-                    "(PUSH)",
+                    "(" + pushLabel + ")",
                     "@SP",
                     "A=M",
                     "M=D",

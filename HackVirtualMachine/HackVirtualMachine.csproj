@@ -42,15 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="CommandFactory.cs" />
-    <Compile Include="ICommand.cs" />
-    <Compile Include="ArithmeticCommand.cs" />
-    <Compile Include="ICommandFactory.cs" />
+    <Compile Include="LabelGenerator.cs" />
     <Compile Include="Translator.cs" />
-    <Compile Include="VMCommandParser.cs" />
     <Compile Include="FileParser.cs" />
-    <Compile Include="MemoryAccessCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyntaxValidator.cs" />
