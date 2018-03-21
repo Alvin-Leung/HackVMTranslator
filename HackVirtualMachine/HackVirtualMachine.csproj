@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyCommandFactory.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="IAssemblyCommandFactory.cs" />
     <Compile Include="LabelGenerator.cs" />
     <Compile Include="Translator.cs" />
