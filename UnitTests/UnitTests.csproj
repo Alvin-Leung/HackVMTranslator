@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HackVirtualMachine\HackVirtualMachine.csproj">
+    <ProjectReference Include="..\HackVMTranslator\HackVMTranslator.csproj">
       <Project>{eff6393b-926d-490f-b311-56c3ceacf3f2}</Project>
-      <Name>HackVirtualMachine</Name>
+      <Name>HackVMTranslator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

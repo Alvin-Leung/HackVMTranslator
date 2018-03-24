@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace HackVirtualMachine
+namespace HackVMTranslator
 {
     static public class SyntaxValidator
     {

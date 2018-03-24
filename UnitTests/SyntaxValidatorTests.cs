@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using HackVirtualMachine;
+using HackVMTranslator;
 
 namespace UnitTests
 {

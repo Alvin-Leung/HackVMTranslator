@@ -1,4 +1,4 @@
-﻿namespace HackVirtualMachine
+﻿namespace HackVMTranslator
 {
     public class LabelGenerator
     {

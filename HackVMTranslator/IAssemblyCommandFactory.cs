@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HackVirtualMachine
+namespace HackVMTranslator
 {
     interface IAssemblyCommandFactory
     {

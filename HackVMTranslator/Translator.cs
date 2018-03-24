@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HackVirtualMachine
+namespace HackVMTranslator
 {
     public class Translator
     {
