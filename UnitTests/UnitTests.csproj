@@ -51,6 +51,7 @@
     <Compile Include="SyntaxValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LabelGeneratorTests.cs" />
+    <Compile Include="TranslatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

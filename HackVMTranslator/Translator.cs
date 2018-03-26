@@ -213,6 +213,8 @@ namespace HackVMTranslator
 
             string i;
 
+            int iAsInt;
+
             if (splitVMCommand.Length == 3)
             {
                 stackCommand = splitVMCommand[0];
@@ -220,10 +222,24 @@ namespace HackVMTranslator
                 segment = splitVMCommand[1];
 
                 i = splitVMCommand[2];
+
+                if (SyntaxValidator.IsConvertableToInteger(i))
+                {
+                    iAsInt = Convert.ToInt32(i);
+
+                    if (iAsInt > 65535)
+                    {
+                        throw new Exception("The value parameter cannot be larger than 65535");
+                    }
+                }
+                else
+                {
+                    throw new Exception("An integer is expected as the last parameter");
+                }
             }
             else
             {
-                throw new Exception("Memory access command not recognized");
+                throw new Exception("Memory access command does not have the correct number of arguments");
             }
 
             assemblyCodeEquivalentToVMCommand = GetAssemblyCode(stackCommand, segment, i);
