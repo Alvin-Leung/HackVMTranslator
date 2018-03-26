@@ -13,25 +13,41 @@ namespace HackVMTranslator
 
             List<string> assemblyCommands = new List<string>();
 
-            foreach (string vmCommand in vmCommands)
+            int vmCommandLineNumber = 1;
+
+            try
             {
-                if (SyntaxValidator.IsArithmeticVMCommand(vmCommand))
+                foreach (string vmCommand in vmCommands)
                 {
-                    nextAssemblyInstructions = translator.GetAssemblyCodeFromArithmeticVMCommand(vmCommand);
-                }
-                else if (SyntaxValidator.IsMemoryAccessVMCommand(vmCommand))
-                {
-                    nextAssemblyInstructions = translator.GetAssemblyCodeFromMemoryAccessVMCommand(vmCommand);
-                }
-                else
-                {
-                    throw new Exception("Unrecognized virtual machine command");
+                    if (SyntaxValidator.IsArithmeticVMCommand(vmCommand))
+                    {
+                        nextAssemblyInstructions = translator.GetAssemblyCodeFromArithmeticVMCommand(vmCommand);
+                    }
+                    else if (SyntaxValidator.IsMemoryAccessVMCommand(vmCommand))
+                    {
+                        nextAssemblyInstructions = translator.GetAssemblyCodeFromMemoryAccessVMCommand(vmCommand);
+                    }
+                    else
+                    {
+                        throw new Exception("Unrecognized virtual machine command");
+                    }
+
+                    assemblyCommands.AddRange(nextAssemblyInstructions);
+
+                    vmCommandLineNumber++;
                 }
 
-                assemblyCommands.AddRange(nextAssemblyInstructions);
+                Console.WriteLine("VM code converted to assembly code...");
+
+                return assemblyCommands;
             }
+            catch (Exception e)
+            {
+                string newErrorMessage = 
+                    "Error on line " + vmCommandLineNumber.ToString() + ": " + e.Message;
 
-            return assemblyCommands;
+                throw new Exception(newErrorMessage);
+            }
         }
     }
 }

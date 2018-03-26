@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Collections.Generic;
 
 namespace HackVMTranslator
@@ -23,6 +24,8 @@ namespace HackVMTranslator
                     writer.WriteLine(assemblyCommand);
                 }
             }
+
+            Console.WriteLine("Assembly commands written to " + this.filepath + "...");
         }
     }
 }

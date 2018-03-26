@@ -23,8 +23,6 @@ namespace HackVMTranslator
                 FileWriter fileWriter = new FileWriter(@"C:\Users\Alvin\Desktop\Programming\Teach_Yourself_CS\Computer_Architecture\nand2tetris\projects\07\StackArithmetic\StackTest\StackTest.asm");
 
                 fileWriter.Write(assemblyCommands);
-
-                Console.WriteLine();
             }
             catch(Exception e)
             {
@@ -32,6 +30,8 @@ namespace HackVMTranslator
             }
             finally
             {
+                Console.WriteLine("Virtual machine code translation successful");
+
                 Console.ReadLine();
             }
         }
