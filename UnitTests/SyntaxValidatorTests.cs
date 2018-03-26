@@ -105,5 +105,25 @@ namespace UnitTests
 
             Assert.AreEqual(false, isMemoryAccessVMCommand);
         }
+
+        [TestMethod]
+        public void IsConvertableToInteger_InputValidString_ReturnsTrue()
+        {
+            string vmCommand = "2345";
+
+            bool isConvertableToInteger = SyntaxValidator.IsConvertableToInteger(vmCommand);
+
+            Assert.AreEqual(true, isConvertableToInteger);
+        }
+
+        [TestMethod]
+        public void IsConvertableToInteger_InputInvalidString_ReturnsFalse()
+        {
+            string vmCommand = "two";
+
+            bool isConvertableToInteger = SyntaxValidator.IsConvertableToInteger(vmCommand);
+
+            Assert.AreEqual(false, isConvertableToInteger);
+        }
     }
 }
