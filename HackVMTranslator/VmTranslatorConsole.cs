@@ -50,7 +50,7 @@ namespace HackVMTranslator
                 "Usage: HackVMTranslator [filepath]" + newLine +
                 newLine +
                 "Options:" + newLine +
-                "\tfilepath\t\tThe filepath to an .vm file" + newLine +
+                "\tfilepath\t\tThe filepath to a .vm file" + newLine +
                 newLine
                 );
 

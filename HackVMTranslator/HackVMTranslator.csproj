@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="VMTranslator.cs" />
     <Compile Include="VMTranslatorConsole.cs" />
     <Compile Include="AssemblyCommandFactory.cs" />
     <Compile Include="FileWriter.cs" />
