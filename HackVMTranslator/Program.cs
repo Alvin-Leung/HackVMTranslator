@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace HackVMTranslator
 {
@@ -7,33 +6,35 @@ namespace HackVMTranslator
     {
         static void Main(string[] args)
         {
-            try
+            string filepath;
+
+            if (VMTranslatorConsole.IsCommandLineUsed(args))
             {
-                FileParser fileParser = new FileParser();
+                if (VMTranslatorConsole.IsArgumentArrayValid(args))
+                {
+                    filepath = args[0];
+                }
+                else
+                {
+                    if (!VMTranslatorConsole.IsHelpRequested(args))
+                    {
+                        Console.WriteLine(Environment.NewLine +
+                            "Error: HackVMTranslator could not translate the .vm file specified by the filepath input");
+                    }
 
-                string filepath =
-                    @"C:\Users\Alvin\Desktop\Programming\Teach_Yourself_CS\Computer_Architecture\nand2tetris\projects\07\StackArithmetic\StackTest\StackTest.vm";
+                    VMTranslatorConsole.DisplayCommandLineHelp();
 
-                IEnumerable<string> vmCommands = fileParser.GetVMCommands(filepath);
-
-                AssemblyCommandFactory assemblyCommandFactory = new AssemblyCommandFactory();
-
-                IEnumerable<string> assemblyCommands = assemblyCommandFactory.GetAssemblyCommands(vmCommands);
-
-                FileWriter fileWriter = new FileWriter(@"C:\Users\Alvin\Desktop\Programming\Teach_Yourself_CS\Computer_Architecture\nand2tetris\projects\07\StackArithmetic\StackTest\StackTest.asm");
-
-                fileWriter.Write(assemblyCommands);
+                    return;
+                }
             }
-            catch(Exception e)
+            else
             {
-                Console.WriteLine(e.Message);
+                filepath = VMTranslatorConsole.GetValidFilepathFromUser();
             }
-            finally
-            {
-                Console.WriteLine("Virtual machine code translation successful");
 
-                Console.ReadLine();
-            }
+            VMTranslator.TryConvertToAsm(filepath);
+
+            VMTranslatorConsole.DisplayExitMessage();
         }
     }
 }
